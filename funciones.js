@@ -84,6 +84,9 @@ agregarimagenes();
         //cambiar la imagenpor las que estan guardadas
         this.setAttribute("src",imagenes[posicionImg].url);
 
+        const img = document.querySelectorAll("img")[posicionImg];
+        img.setAttribute("class","not-active");
+
         imgelegida.push(imagenes[posicionImg].nombre);
         imgelegidaPos.push([posicionImg]);
 
@@ -108,13 +111,21 @@ agregarimagenes();
             todaslasImg[opcion2].setAttribute("src","imagenees/silicon-valley-mensaje-de-la-matriz-ejemplo-del-139558169.jpg");
             contador++;
             aciertos.textContent = contador;
-
+            
+                if(contador === 6){
+                    let next = prompt("Deseas Continuar SI O NO? ");
+                    location.reload();
+                }
         }else{
-            alert("fatastes :(");
             todaslasImg[opcion1].setAttribute("src","imagenees/pregunta.png");
             todaslasImg[opcion2].setAttribute("src","imagenees/pregunta.png");
+            todaslasImg[opcion1].classList.remove('not-active');
+            todaslasImg[opcion2].classList.remove('not-active');
+            alert("Las imagenes no coiciden.");
         }
+    
 
+        
         imgelegida = [];
         imgelegidaPos = [];
     }

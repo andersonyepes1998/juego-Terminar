@@ -9,3 +9,12 @@
 .titulo, .p{
     text-align: center;
 }
+
+*{
+    transition: all 0.5s;
+}
+
+.not-active{
+    pointer-events: none;
+    cursor: default;
+}
